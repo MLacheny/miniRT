@@ -1,4 +1,4 @@
-#include <minirt.h>
+#include "minirt.h"
 
 int	is_dot(char *str)
 {
@@ -55,10 +55,12 @@ int	handle_err(int argc, char **argv)
 
 int	main(int argc, char **argv)
 {
-	int fd;
+	int 	fd;
+	t_scene	scene;
 
 	if ((fd = handle_err(argc, argv)) == -1)
 		return (1);
-	
+	if (!fill_scene(&scene, fd))
+		return (1);
 	return (0);
 }

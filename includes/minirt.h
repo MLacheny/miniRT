@@ -6,7 +6,7 @@
 /*   By: mlacheny <mlacheny@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/10/14 22:13:35 by mlacheny          #+#    #+#             */
-/*   Updated: 2020/10/18 17:15:10 by user42           ###   ########.fr       */
+/*   Updated: 2020/10/18 17:33:29 by user42           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -30,12 +30,12 @@ typedef struct	s_coord
 	int z;
 }				t_coord;
 
-typedef struct	t_orient
+typedef struct	s_orien
 {
 	float	rx;
 	float	ry;
 	float	rz;
-}				s_orient;
+}				t_orien;
 
 typedef	struct	s_color
 {
@@ -46,10 +46,10 @@ typedef	struct	s_color
 
 typedef struct	s_cam
 {
-	t_coord		coord;
-	t_orient	orient;
-	int			fov;
-	t_cam		*next;
+	t_coord			coord;
+	t_orien			orien;
+	int				fov;
+	struct s_cam	*next;
 }				t_cam;
 
 typedef struct	s_lum_amb
@@ -66,25 +66,55 @@ typedef struct	s_res
 
 typedef	struct	s_light
 {
-	t_coord	coord;
-	float	strenght;
-	t_color	color;
-	t_light	*next;
+	t_coord			coord;
+	float			strenght;
+	t_color			color;
+	struct s_light	*next;
 }				t_light;
 
 typedef struct	s_obj
 {
-	int		id;
-	void	*type;
-	s_obj	*next;
+	int				id;
+	void			*type;
+	struct s_obj	*next;
 }				t_obj;
 
-typedef	struct	s_sp;
+typedef	struct	s_sp
 {
 	t_coord	coord;
 	t_color	color;
 	float	diam;
-}
+}				t_sp;
+
+typedef	struct	s_plane
+{
+	t_coord	coord;
+	t_color	color;
+	t_orien	orien;
+}				t_plane;
+
+typedef	struct	s_carre
+{
+	t_coord	coord;
+	t_color	color;
+	t_orien	orien;
+	float	size;
+}				t_carre;
+
+typedef	struct	s_cylin
+{
+	t_coord	coord;
+	t_color	color;
+	t_orien	orien;
+	float	diam;
+	float	height;
+}				t_cylin;
+
+typedef	struct	s_trian
+{
+	t_coord	coord[3];
+	t_color	color;
+}				t_trian;
 
 typedef struct	s_scene
 {
