@@ -6,7 +6,7 @@
 /*   By: mlacheny <mlacheny@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/10/19 15:34:07 by mlacheny          #+#    #+#             */
-/*   Updated: 2020/10/26 13:44:15 by mlacheny         ###   ########.fr       */
+/*   Updated: 2020/10/26 16:48:51 by user42           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -28,8 +28,10 @@ int		check_line(char *line, int *is_AR)
 		return (-1);
 	if (line[0] == 'R' && is_sp(line[1]))
 		return (valid_res(line + 1, is_AR + 1));
-	if (line[0] == 'A' && is_sp(line[1]))
+	else if (line[0] == 'A' && is_sp(line[1]))
 		return (valid_amb(line + 1, is_AR));
+	/*else if (line[0] == 'c' && is_sp(line[1]))
+		return (valid_cam(line + 1));*/
 	return (1);
 }
 
