@@ -1,3 +1,15 @@
+/* ************************************************************************** */
+/*                                                                            */
+/*                                                        :::      ::::::::   */
+/*   parsing.c                                          :+:      :+:    :+:   */
+/*                                                    +:+ +:+         +:+     */
+/*   By: mlacheny <mlacheny@student.42.fr>          +#+  +:+       +#+        */
+/*                                                +#+#+#+#+#+   +#+           */
+/*   Created: 2020/10/19 15:34:18 by mlacheny          #+#    #+#             */
+/*   Updated: 2020/10/20 17:45:49 by mlacheny         ###   ########.fr       */
+/*                                                                            */
+/* ************************************************************************** */
+
 #include "minirt.h"
 
 int	is_dot(char *str)
@@ -53,14 +65,33 @@ int	handle_err(int argc, char **argv)
 	return (fd);
 }
 
+int	handle_gnl_err(char *pname, int error_type, int fd)
+{
+	if (error_type == -1)
+	{
+		ft_putstr_fd(pname, 2);
+		ft_putstr_fd(" : error while reading in file\n", 2);
+	}
+	else if (error_type == 0)
+	{
+		ft_putstr_fd(pname, 2);
+		ft_putstr_fd(" : inccorect parameters in configuration file\n", 2);
+	}
+	else
+		return (1);
+	close(fd);
+	return (1);
+}
+
 int	main(int argc, char **argv)
 {
 	int 	fd;
+	int 	err_type;
 	t_scene	scene;
 
 	if ((fd = handle_err(argc, argv)) == -1)
 		return (1);
-	if (!fill_scene(&scene, fd))
-		return (1);
+	if ((err_type = fill_scene(&scene, &fd, argc, argv)) != 1)
+		return (handle_gnl_err(argv[0], err_type, fd));
 	return (0);
 }

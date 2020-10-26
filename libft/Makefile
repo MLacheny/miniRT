@@ -15,21 +15,21 @@ RM			=rm -f
 CC			=gcc
 
 .c.o:		
-			${CC} ${FLAGS} -c $< -o ${<:.c=.o}
+			@${CC} ${FLAGS} -c $< -o ${<:.c=.o}
 
 all:		${NAME}
 
 $(NAME):	${OBJ}
-			ar rcs ${NAME} ${OBJ}
+			@ar rcs ${NAME} ${OBJ}
 
 bonus:		${OBJBONUS}
-			ar rcs ${NAME} ${OBJBONUS}
+			@ar rcs ${NAME} ${OBJBONUS}
 
 clean:	
-			${RM} ${OBJ} ${OBJBONUS}
+			@${RM} ${OBJ} ${OBJBONUS}
 
 fclean:		clean
-			${RM} ${NAME}
+			@${RM} ${NAME}
 
 re :		fclean all
 

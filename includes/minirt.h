@@ -6,7 +6,7 @@
 /*   By: mlacheny <mlacheny@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/10/14 22:13:35 by mlacheny          #+#    #+#             */
-/*   Updated: 2020/10/18 17:33:29 by user42           ###   ########.fr       */
+/*   Updated: 2020/10/26 13:49:10 by mlacheny         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -49,7 +49,6 @@ typedef struct	s_cam
 	t_coord			coord;
 	t_orien			orien;
 	int				fov;
-	struct s_cam	*next;
 }				t_cam;
 
 typedef struct	s_lum_amb
@@ -69,14 +68,12 @@ typedef	struct	s_light
 	t_coord			coord;
 	float			strenght;
 	t_color			color;
-	struct s_light	*next;
 }				t_light;
 
 typedef struct	s_obj
 {
 	int				id;
 	void			*type;
-	struct s_obj	*next;
 }				t_obj;
 
 typedef	struct	s_sp
@@ -120,9 +117,18 @@ typedef struct	s_scene
 {
 	t_res		res;
 	t_lum_amb	lum_amb;
-	t_cam		*cam;
-	t_light		*light;
-	t_obj		*objs;
+	t_list		*cam;
+	t_list		*light;
+	t_list		*objs;
 }				t_scene;
+
+int		fill_scene(t_scene *scene, int *fd, int argc, char **argv);
+int		handle_err(int argc, char **argv);
+int		is_sp(char c);
+int		valid_res(char *str, int *is_R);
+int		valid_amb(char *str, int *is_A);
+t_color	set_color(unsigned char R, unsigned char G, unsigned char B);
+t_orien	set_orien(float rx, float ey, float rz);
+t_coord	set_coord(int x, int y, int z);
 
 #	endif
