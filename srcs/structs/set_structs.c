@@ -6,7 +6,7 @@
 /*   By: mlacheny <mlacheny@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/10/20 15:49:15 by mlacheny          #+#    #+#             */
-/*   Updated: 2020/10/20 17:01:00 by mlacheny         ###   ########.fr       */
+/*   Updated: 2020/11/01 12:40:02 by mlacheny         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -32,7 +32,7 @@ t_orien	set_orien(float rx, float ry, float rz)
 	return (orien);
 }
 
-t_coord	set_coord(int x, int y, int z)
+t_coord	set_coord(float x, float y, float z)
 {
 	t_coord coord;
 

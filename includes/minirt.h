@@ -6,7 +6,7 @@
 /*   By: mlacheny <mlacheny@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/10/14 22:13:35 by mlacheny          #+#    #+#             */
-/*   Updated: 2020/10/26 16:56:22 by user42           ###   ########.fr       */
+/*   Updated: 2020/11/01 13:07:12 by mlacheny         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -25,9 +25,9 @@
 
 typedef struct	s_coord
 {
-	int x;
-	int y;
-	int z;
+	float x;
+	float y;
+	float z;
 }				t_coord;
 
 typedef struct	s_orien
@@ -127,11 +127,16 @@ int				handle_err(int argc, char **argv);
 int				is_sp(char c);
 int				valid_res(char *str, int *is_R);
 int				valid_amb(char *str, int *is_A);
+int				valid_cam(char *str);
+int				valid_coord(char **str, t_coord *coord);
+int				valid_orient(char **str, t_orien *orien);
 int				valid_spacing(char **str);
-int				atocolor(char **str, unsigned char *p);
-float			valid_stre(char **str);
+int				valid_color(char **str, t_color *color);
+int				ft_atocolor(char **str, unsigned char *p);
+int				ft_atof(char **str, float *f);
+int				ft_atoint(char **str);
 t_color			set_color(unsigned char R, unsigned char G, unsigned char B);
 t_orien			set_orien(float rx, float ey, float rz);
-t_coord			set_coord(int x, int y, int z);
+t_coord			set_coord(float x, float y, float z);
 
 #	endif
