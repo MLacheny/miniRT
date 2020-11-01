@@ -6,7 +6,7 @@
 /*   By: mlacheny <mlacheny@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/10/19 15:34:07 by mlacheny          #+#    #+#             */
-/*   Updated: 2020/11/01 12:46:48 by mlacheny         ###   ########.fr       */
+/*   Updated: 2020/11/01 16:07:44 by mlacheny         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -32,6 +32,12 @@ int		check_line(char *line, int *is_AR)
 		return (valid_amb(line + 1, is_AR));
 	else if (line[0] == 'c' && is_sp(line[1]))
 		return (valid_cam(line + 1));
+	else if (line[0] == 'l' && is_sp(line[1]))
+		return (valid_light(line + 1));
+	else if (line[0] == 's' && line[1] == 'p' && is_sp(line[2]))
+		return (valid_sphere(line + 2));
+	else
+		return (-1);
 	return (1);
 }
 

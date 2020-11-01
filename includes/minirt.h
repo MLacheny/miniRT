@@ -6,7 +6,7 @@
 /*   By: mlacheny <mlacheny@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/10/14 22:13:35 by mlacheny          #+#    #+#             */
-/*   Updated: 2020/11/01 13:07:12 by mlacheny         ###   ########.fr       */
+/*   Updated: 2020/11/01 16:07:40 by mlacheny         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -66,7 +66,7 @@ typedef struct	s_res
 typedef	struct	s_light
 {
 	t_coord			coord;
-	float			strenght;
+	float			stren;
 	t_color			color;
 }				t_light;
 
@@ -128,6 +128,8 @@ int				is_sp(char c);
 int				valid_res(char *str, int *is_R);
 int				valid_amb(char *str, int *is_A);
 int				valid_cam(char *str);
+int				valid_light(char *str);
+int				valid_sphere(char *str);
 int				valid_coord(char **str, t_coord *coord);
 int				valid_orient(char **str, t_orien *orien);
 int				valid_spacing(char **str);

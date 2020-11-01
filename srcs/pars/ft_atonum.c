@@ -6,7 +6,7 @@
 /*   By: mlacheny <mlacheny@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/11/01 12:13:13 by mlacheny          #+#    #+#             */
-/*   Updated: 2020/11/01 12:34:21 by mlacheny         ###   ########.fr       */
+/*   Updated: 2020/11/01 13:27:11 by mlacheny         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -62,10 +62,10 @@ int ft_atoint(char **str)
 
 	i = 0;
 	if (!is_sp(**str))
-		return (0);
+		return (-1);
 	while (is_sp(*(++(*str))));
 	if (!ft_isdigit(**str))
-		return (0);
+		return (-1);
 	i = i * 10 + **str - '0';
 	while (ft_isdigit(*(++(*str))))
 		i = i * 10 + **str - '0';
