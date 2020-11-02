@@ -6,7 +6,7 @@
 /*   By: mlacheny <mlacheny@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/10/14 22:13:35 by mlacheny          #+#    #+#             */
-/*   Updated: 2020/11/01 16:07:40 by mlacheny         ###   ########.fr       */
+/*   Updated: 2020/11/02 12:09:22 by mlacheny         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -130,6 +130,10 @@ int				valid_amb(char *str, int *is_A);
 int				valid_cam(char *str);
 int				valid_light(char *str);
 int				valid_sphere(char *str);
+int				valid_plane(char *str);
+int				valid_squarre(char *str);
+int				valid_cylindre(char *str);
+int				valid_triangle(char *str);
 int				valid_coord(char **str, t_coord *coord);
 int				valid_orient(char **str, t_orien *orien);
 int				valid_spacing(char **str);

@@ -6,7 +6,7 @@
 /*   By: mlacheny <mlacheny@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/10/20 17:53:22 by mlacheny          #+#    #+#             */
-/*   Updated: 2020/11/01 16:11:49 by mlacheny         ###   ########.fr       */
+/*   Updated: 2020/11/02 11:10:26 by mlacheny         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -30,9 +30,7 @@ int	valid_amb(char *str, int *is_A)
 {
 	t_color	color;
 	float	f;
-	int		i;
 
-	i = 0;
 	if (*is_A)
 		return (-1);
 	*is_A = 1;

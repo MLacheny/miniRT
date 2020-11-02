@@ -6,7 +6,7 @@
 /*   By: mlacheny <mlacheny@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/10/19 15:34:07 by mlacheny          #+#    #+#             */
-/*   Updated: 2020/11/01 16:07:44 by mlacheny         ###   ########.fr       */
+/*   Updated: 2020/11/02 12:08:56 by mlacheny         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -26,19 +26,25 @@ int		check_line(char *line, int *is_AR)
 		return (1);
 	if (ft_strlen(line) < 3)
 		return (-1);
-	if (line[0] == 'R' && is_sp(line[1]))
+	if (line[0] == 'R')
 		return (valid_res(line + 1, is_AR + 1));
-	else if (line[0] == 'A' && is_sp(line[1]))
+	else if (line[0] == 'A')
 		return (valid_amb(line + 1, is_AR));
 	else if (line[0] == 'c' && is_sp(line[1]))
 		return (valid_cam(line + 1));
-	else if (line[0] == 'l' && is_sp(line[1]))
+	else if (line[0] == 'l')
 		return (valid_light(line + 1));
-	else if (line[0] == 's' && line[1] == 'p' && is_sp(line[2]))
+	else if (line[0] == 's' && line[1] == 'p')
 		return (valid_sphere(line + 2));
-	else
-		return (-1);
-	return (1);
+	else if (line[0] == 'p' && line[1] == 'l')
+		return (valid_plane(line + 2));
+	else if (line[0] == 's' && line[1] == 'q')
+		return (valid_squarre(line + 2));
+	else if (line[0] == 'c' && line[1] == 'y')
+		return (valid_cylindre(line + 2));
+	else if (line[0] == 't' && line[1] == 'r')
+		return (valid_triangle(line + 2));
+	return (-1);
 }
 
 int		check_lines_errors(int fd, int *is_AR)
