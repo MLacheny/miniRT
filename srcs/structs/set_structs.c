@@ -6,7 +6,7 @@
 /*   By: mlacheny <mlacheny@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/10/20 15:49:15 by mlacheny          #+#    #+#             */
-/*   Updated: 2020/11/01 12:40:02 by mlacheny         ###   ########.fr       */
+/*   Updated: 2020/11/02 16:58:15 by mlacheny         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -40,4 +40,14 @@ t_coord	set_coord(float x, float y, float z)
 	coord.y = y;
 	coord.z = z;
 	return (coord);
+}
+
+t_scene def_scene(void)
+{
+	t_scene scene;
+
+	scene.cam = 0;
+	scene.light = 0;
+	scene.objs = 0;
+	return (scene);
 }

@@ -31,6 +31,7 @@ all : 		$(NAME)
 $(NAME) :	$(OBJS)
 			@make -C $(MINILIBX) all
 			@make -C $(LIBFT) all
+			@make -C $(LIBFT) bonus
 			@$(CC) $(FLAGS) $(SGFLAGS) -I$(INCLUDES) $(OBJS) minilibx/*.a -L -lmlx -lX11 -lXext -lm libft/libft.a -o $(NAME)
 
 clean :	

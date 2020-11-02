@@ -6,7 +6,7 @@
 /*   By: mlacheny <mlacheny@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/10/14 22:13:35 by mlacheny          #+#    #+#             */
-/*   Updated: 2020/11/02 14:27:49 by mlacheny         ###   ########.fr       */
+/*   Updated: 2020/11/02 16:59:47 by mlacheny         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -143,8 +143,10 @@ int				ft_atof(char **str, float *f);
 int				ft_atoint(char **str);
 int				new_res(t_scene *scene, char *str);
 int				new_amb(t_scene *scene, char *str);
+int				new_cam(t_scene *scene, char *str);
 t_color			set_color(unsigned char R, unsigned char G, unsigned char B);
 t_orien			set_orien(float rx, float ey, float rz);
 t_coord			set_coord(float x, float y, float z);
+t_scene			def_scene(void);
 
 #	endif

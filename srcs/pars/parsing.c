@@ -6,7 +6,7 @@
 /*   By: mlacheny <mlacheny@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/10/19 15:34:18 by mlacheny          #+#    #+#             */
-/*   Updated: 2020/11/02 14:27:46 by mlacheny         ###   ########.fr       */
+/*   Updated: 2020/11/02 17:00:10 by mlacheny         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -77,6 +77,11 @@ int	handle_gnl_err(char *pname, int error_type, int fd)
 		ft_putstr_fd(pname, 2);
 		ft_putstr_fd(" : inccorect parameters in configuration file\n", 2);
 	}
+	else if (error_type == -2)
+	{
+		ft_putstr_fd(pname, 2);
+		ft_putstr_fd(" : error while allocating memory\n", 2);	
+	}
 	else
 		return (1);
 	close(fd);
@@ -89,16 +94,12 @@ int	main(int argc, char **argv)
 	int 	err_type;
 	t_scene	scene;
 
+	scene = def_scene();
 	if ((fd = handle_err(argc, argv)) == -1)
 		return (1);
 	if ((err_type = fill_scene(&scene, &fd, argc, argv)) != 1)
 		return (handle_gnl_err(argv[0], err_type, fd));
-	printf("%f\n", scene.lum_amb.stren);
-	ft_putnbr_fd(scene.lum_amb.color.R, 1);
-	ft_putstr_fd("\n", 1);	
-	ft_putnbr_fd(scene.lum_amb.color.G, 1);
-	ft_putstr_fd("\n", 1);	
-	ft_putnbr_fd(scene.lum_amb.color.B, 1);
-	ft_putstr_fd("\n", 1);	
+	ft_putnbr_fd(((t_cam *)scene.cam->content)->fov, 1);
+	ft_putstr_fd("\n", 1);
 	return (0);
 }
