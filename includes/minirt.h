@@ -6,7 +6,7 @@
 /*   By: mlacheny <mlacheny@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/10/14 22:13:35 by mlacheny          #+#    #+#             */
-/*   Updated: 2020/11/02 12:09:22 by mlacheny         ###   ########.fr       */
+/*   Updated: 2020/11/02 14:27:49 by mlacheny         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -53,7 +53,7 @@ typedef struct	s_cam
 
 typedef struct	s_lum_amb
 {
-	float	strenght;
+	float	stren;
 	t_color	color;
 }				t_lum_amb;
 
@@ -141,6 +141,8 @@ int				valid_color(char **str, t_color *color);
 int				ft_atocolor(char **str, unsigned char *p);
 int				ft_atof(char **str, float *f);
 int				ft_atoint(char **str);
+int				new_res(t_scene *scene, char *str);
+int				new_amb(t_scene *scene, char *str);
 t_color			set_color(unsigned char R, unsigned char G, unsigned char B);
 t_orien			set_orien(float rx, float ey, float rz);
 t_coord			set_coord(float x, float y, float z);

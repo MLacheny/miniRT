@@ -6,7 +6,7 @@
 /*   By: mlacheny <mlacheny@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/10/19 15:34:07 by mlacheny          #+#    #+#             */
-/*   Updated: 2020/11/02 12:08:56 by mlacheny         ###   ########.fr       */
+/*   Updated: 2020/11/02 14:22:32 by mlacheny         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,9 +14,12 @@
 
 int		get_info(t_scene *scene, char *line)
 {
-	(void)scene;
-	ft_putstr_fd(line, 1);
-	ft_putstr_fd("\n", 1);
+	if (!line[0])
+		return (1);
+	if (line[0] == 'R')
+		return (new_res(scene, line + 1));
+	if (line[0] == 'A')
+		return (new_amb(scene, line + 1));
 	return (1);
 }
 

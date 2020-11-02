@@ -6,13 +6,13 @@
 /*   By: mlacheny <mlacheny@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/11/01 12:13:13 by mlacheny          #+#    #+#             */
-/*   Updated: 2020/11/01 13:27:11 by mlacheny         ###   ########.fr       */
+/*   Updated: 2020/11/02 14:43:45 by mlacheny         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "minirt.h"
 
-int ft_atocolor(char **str, unsigned char *p)
+int		ft_atocolor(char **str, unsigned char *p)
 {
 	int i;
 
@@ -28,7 +28,21 @@ int ft_atocolor(char **str, unsigned char *p)
 	return (0);
 }
 
-int ft_atof(char **str, float *f)
+float	get_dec(char **str)
+{
+	float	d;
+	int		i;
+
+	d = 0;
+	i = 0;
+	while (ft_isdigit((*str)[++i]));
+	while (--i >= 0)
+		d = (d + (*str)[i] - '0') / 10;
+	while (ft_isdigit(*(++(*str))));
+	return (d);
+}
+
+int		ft_atof(char **str, float *f)
 {
 	float	e;
 	float	d;
@@ -48,15 +62,13 @@ int ft_atof(char **str, float *f)
 	{
 		if (!ft_isdigit(*(++(*str))))
 			return (-1);
-		d = (d + **str - '0') / 10;
-		while (ft_isdigit(*(++(*str))))
-			d = (d + **str - '0') / 10;
+		d = get_dec(str);
 	}
 	*f = (e + d) * sign;
 	return (0);
 }
 
-int ft_atoint(char **str)
+int 	ft_atoint(char **str)
 {
 	int i;
 

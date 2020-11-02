@@ -6,7 +6,7 @@
 /*   By: mlacheny <mlacheny@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/10/19 15:34:18 by mlacheny          #+#    #+#             */
-/*   Updated: 2020/10/20 17:45:49 by mlacheny         ###   ########.fr       */
+/*   Updated: 2020/11/02 14:27:46 by mlacheny         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -93,5 +93,12 @@ int	main(int argc, char **argv)
 		return (1);
 	if ((err_type = fill_scene(&scene, &fd, argc, argv)) != 1)
 		return (handle_gnl_err(argv[0], err_type, fd));
+	printf("%f\n", scene.lum_amb.stren);
+	ft_putnbr_fd(scene.lum_amb.color.R, 1);
+	ft_putstr_fd("\n", 1);	
+	ft_putnbr_fd(scene.lum_amb.color.G, 1);
+	ft_putstr_fd("\n", 1);	
+	ft_putnbr_fd(scene.lum_amb.color.B, 1);
+	ft_putstr_fd("\n", 1);	
 	return (0);
 }

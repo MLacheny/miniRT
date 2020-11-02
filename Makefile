@@ -3,6 +3,7 @@ SRCS =	srcs/pars/parsing.c							\
 		srcs/pars/valid_arg.c						\
 		srcs/pars/valid_arg2.c						\
 		srcs/pars/valid_param.c						\
+		srcs/pars/fill_arg.c						\
 		srcs/pars/ft_atonum.c						\
 		srcs/get_next_line/get_next_line_utils.c	\
 		srcs/get_next_line/get_next_line.c			\
