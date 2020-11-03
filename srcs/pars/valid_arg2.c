@@ -6,7 +6,7 @@
 /*   By: mlacheny <mlacheny@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/11/02 10:59:39 by mlacheny          #+#    #+#             */
-/*   Updated: 2020/11/02 12:17:12 by mlacheny         ###   ########.fr       */
+/*   Updated: 2020/11/03 15:35:58 by mlacheny         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -60,7 +60,7 @@ int	valid_squarre(char *str)
 
 int	valid_cylindre(char *str)
 {
-	t_cylin cy;
+	t_cy cy;
 
 	if (valid_spacing(&str) == -1)
 		return (-1);
@@ -72,11 +72,11 @@ int	valid_cylindre(char *str)
 		return (-1);
 	if (valid_spacing(&str) == -1)
 		return (-1);
-	if (ft_atof(&str, &cy.diam) == -1 || cy.diam <= 0)
+	if (ft_atof(&str, &cy.d) == -1 || cy.d <= 0)
 		return (-1);
 	if (valid_spacing(&str) == -1)
 		return (-1);
-	if (ft_atof(&str, &cy.height) == -1 || cy.height <= 0)
+	if (ft_atof(&str, &cy.h) == -1 || cy.h <= 0)
 		return (-1);
 	if (valid_spacing(&str) == -1)
 		return (-1);
@@ -89,7 +89,7 @@ int	valid_cylindre(char *str)
 
 int	valid_triangle(char *str)
 {
-	t_trian	tr;
+	t_tr	tr;
 	int		i;
 
 	i = -1;

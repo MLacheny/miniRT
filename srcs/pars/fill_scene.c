@@ -6,7 +6,7 @@
 /*   By: mlacheny <mlacheny@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/10/19 15:34:07 by mlacheny          #+#    #+#             */
-/*   Updated: 2020/11/02 16:11:33 by mlacheny         ###   ########.fr       */
+/*   Updated: 2020/11/03 15:35:24 by mlacheny         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -22,6 +22,18 @@ int		get_info(t_scene *scene, char *line)
 		return (new_amb(scene, line + 1));
 	if (line[0] == 'c' && is_sp(line[1]))
 		return (new_cam(scene, line + 1));
+	if (line[0] == 'l')
+		return (new_light(scene, line + 1));
+	if (line[0] == 's' && line[1] == 'p')
+		return (new_sphere(scene, line + 2));
+	if (line[0] == 'p' && line[1] == 'l')
+		return (new_plane(scene, line + 2));
+	else if (line[0] == 's' && line[1] == 'q')
+		return (new_carre(scene, line + 2));
+	else if (line[0] == 'c' && line[1] == 'y')
+		return (new_cy(scene, line + 2));
+	else if (line[0] == 't' && line[1] == 'r')
+		return (new_tr(scene, line + 2));
 	return (1);
 }
 

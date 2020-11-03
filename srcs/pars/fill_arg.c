@@ -6,7 +6,7 @@
 /*   By: mlacheny <mlacheny@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/11/02 13:49:18 by mlacheny          #+#    #+#             */
-/*   Updated: 2020/11/02 16:58:41 by mlacheny         ###   ########.fr       */
+/*   Updated: 2020/11/03 11:26:54 by mlacheny         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -40,5 +40,42 @@ int	new_cam(t_scene *scene, char *str)
 	valid_orient(&str, &cam->orien);
 	cam->fov = ft_atoint(&str);
 	ft_lstadd_back(&scene->cam, ft_lstnew(cam));
+	return (1);
+}
+
+int	new_light(t_scene *scene, char *str)
+{
+	t_light *light;
+
+	if (!(light = malloc(sizeof(*light))))
+		return (-1);
+	valid_spacing(&str);
+	valid_coord(&str, &light->coord);
+	valid_spacing(&str);
+	ft_atof(&str, &light->stren);
+	valid_spacing(&str);
+	valid_color(&str, &light->color);
+	ft_lstadd_back(&scene->light, ft_lstnew(light));
+	return (1);
+}
+
+int	new_sphere(t_scene *scene, char *str)
+{
+	t_obj	*obj;
+	t_sp	*sp;
+
+	if (!(obj = malloc(sizeof(*obj))))
+		return (-1);
+	if (!(sp = malloc(sizeof(*sp))))
+		return (-1);
+	obj->id = 1;
+	valid_spacing(&str);
+	valid_coord(&str, &sp->coord);
+	valid_spacing(&str);
+	ft_atof(&str, &sp->diam);
+	valid_spacing(&str);
+	valid_color(&str, &sp->color);
+	obj->type = sp;
+	ft_lstadd_back(&scene->objs, ft_lstnew(obj));
 	return (1);
 }

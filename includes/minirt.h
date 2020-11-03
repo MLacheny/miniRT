@@ -6,7 +6,7 @@
 /*   By: mlacheny <mlacheny@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/10/14 22:13:35 by mlacheny          #+#    #+#             */
-/*   Updated: 2020/11/02 16:59:47 by mlacheny         ###   ########.fr       */
+/*   Updated: 2020/11/03 15:41:53 by mlacheny         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -79,39 +79,39 @@ typedef struct	s_obj
 typedef	struct	s_sp
 {
 	t_coord	coord;
-	t_color	color;
 	float	diam;
+	t_color	color;
 }				t_sp;
 
 typedef	struct	s_plane
 {
 	t_coord	coord;
-	t_color	color;
 	t_orien	orien;
+	t_color	color;
 }				t_plane;
 
 typedef	struct	s_carre
 {
 	t_coord	coord;
-	t_color	color;
 	t_orien	orien;
 	float	size;
+	t_color	color;
 }				t_carre;
 
-typedef	struct	s_cylin
+typedef	struct	s_cy
 {
 	t_coord	coord;
-	t_color	color;
 	t_orien	orien;
-	float	diam;
-	float	height;
-}				t_cylin;
+	float	d;
+	float	h;
+	t_color	color;
+}				t_cy;
 
-typedef	struct	s_trian
+typedef	struct	s_tr
 {
 	t_coord	coord[3];
 	t_color	color;
-}				t_trian;
+}				t_tr;
 
 typedef struct	s_scene
 {
@@ -144,6 +144,23 @@ int				ft_atoint(char **str);
 int				new_res(t_scene *scene, char *str);
 int				new_amb(t_scene *scene, char *str);
 int				new_cam(t_scene *scene, char *str);
+int				new_light(t_scene *scene, char *str);
+int				new_sphere(t_scene *scene, char *str);
+int				new_plane(t_scene *scene, char *str);
+int				new_carre(t_scene *scene, char *str);
+int				new_cy(t_scene *scene, char *str);
+int				new_tr(t_scene *scene, char *str);
+void			display_scene(t_scene scene);
+void			display_res(t_res res);
+void			display_lumamb(t_lum_amb lum_amb);
+void			display_cams(t_list *cam);
+void			display_lights(t_list *light);
+void			display_objs(t_list *obj);
+void			display_sphere(t_sp sp);
+void			display_plane(t_plane pl);
+void			display_carre(t_carre sq);
+void			display_cy(t_cy cy);
+void			display_tr(t_tr tr);
 t_color			set_color(unsigned char R, unsigned char G, unsigned char B);
 t_orien			set_orien(float rx, float ey, float rz);
 t_coord			set_coord(float x, float y, float z);
