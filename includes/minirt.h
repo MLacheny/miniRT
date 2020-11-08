@@ -6,7 +6,7 @@
 /*   By: mlacheny <mlacheny@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/10/14 22:13:35 by mlacheny          #+#    #+#             */
-/*   Updated: 2020/11/03 15:41:53 by mlacheny         ###   ########.fr       */
+/*   Updated: 2020/11/08 18:13:25 by mlacheny         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -25,16 +25,16 @@
 
 typedef struct	s_coord
 {
-	float x;
-	float y;
-	float z;
+	double x;
+	double y;
+	double z;
 }				t_coord;
 
 typedef struct	s_orien
 {
-	float	rx;
-	float	ry;
-	float	rz;
+	double	rx;
+	double	ry;
+	double	rz;
 }				t_orien;
 
 typedef	struct	s_color
@@ -49,11 +49,13 @@ typedef struct	s_cam
 	t_coord			coord;
 	t_orien			orien;
 	int				fov;
+	double			tra[4][4];
+	t_orien			*rays;
 }				t_cam;
 
 typedef struct	s_lum_amb
 {
-	float	stren;
+	double	stren;
 	t_color	color;
 }				t_lum_amb;
 
@@ -66,7 +68,7 @@ typedef struct	s_res
 typedef	struct	s_light
 {
 	t_coord			coord;
-	float			stren;
+	double			stren;
 	t_color			color;
 }				t_light;
 
@@ -79,7 +81,7 @@ typedef struct	s_obj
 typedef	struct	s_sp
 {
 	t_coord	coord;
-	float	diam;
+	double	diam;
 	t_color	color;
 }				t_sp;
 
@@ -94,7 +96,7 @@ typedef	struct	s_carre
 {
 	t_coord	coord;
 	t_orien	orien;
-	float	size;
+	double	size;
 	t_color	color;
 }				t_carre;
 
@@ -102,8 +104,8 @@ typedef	struct	s_cy
 {
 	t_coord	coord;
 	t_orien	orien;
-	float	d;
-	float	h;
+	double	d;
+	double	h;
 	t_color	color;
 }				t_cy;
 
@@ -139,7 +141,7 @@ int				valid_orient(char **str, t_orien *orien);
 int				valid_spacing(char **str);
 int				valid_color(char **str, t_color *color);
 int				ft_atocolor(char **str, unsigned char *p);
-int				ft_atof(char **str, float *f);
+int				ft_atof(char **str, double *f);
 int				ft_atoint(char **str);
 int				new_res(t_scene *scene, char *str);
 int				new_amb(t_scene *scene, char *str);
@@ -150,6 +152,7 @@ int				new_plane(t_scene *scene, char *str);
 int				new_carre(t_scene *scene, char *str);
 int				new_cy(t_scene *scene, char *str);
 int				new_tr(t_scene *scene, char *str);
+t_orien			to_norm(t_orien o);
 void			display_scene(t_scene scene);
 void			display_res(t_res res);
 void			display_lumamb(t_lum_amb lum_amb);
@@ -162,8 +165,8 @@ void			display_carre(t_carre sq);
 void			display_cy(t_cy cy);
 void			display_tr(t_tr tr);
 t_color			set_color(unsigned char R, unsigned char G, unsigned char B);
-t_orien			set_orien(float rx, float ey, float rz);
-t_coord			set_coord(float x, float y, float z);
+t_orien			set_orien(double rx, double ey, double rz);
+t_coord			set_coord(double x, double y, double z);
 t_scene			def_scene(void);
 
 #	endif

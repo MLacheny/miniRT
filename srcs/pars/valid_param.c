@@ -6,7 +6,7 @@
 /*   By: mlacheny <mlacheny@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/11/01 12:14:26 by mlacheny          #+#    #+#             */
-/*   Updated: 2020/11/01 14:28:16 by mlacheny         ###   ########.fr       */
+/*   Updated: 2020/11/08 18:12:37 by mlacheny         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -69,5 +69,8 @@ int	valid_orient(char **str, t_orien *orien)
 		return (-1);
 	if (ft_atof(str, &orien->rz) == -1 || orien->rz < -1 || orien->rz > 1)
 		return (-1);
+	if (!orien->rx && !orien->ry && !orien->rz)
+		return (-1);
+	*orien = to_norm(*orien);
 	return (0);
 }

@@ -6,7 +6,7 @@
 /*   By: mlacheny <mlacheny@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/10/20 15:49:15 by mlacheny          #+#    #+#             */
-/*   Updated: 2020/11/02 16:58:15 by mlacheny         ###   ########.fr       */
+/*   Updated: 2020/11/08 17:52:04 by mlacheny         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -22,7 +22,7 @@ t_color	set_color(unsigned char R, unsigned char G, unsigned char B)
 	return (color);
 }
 
-t_orien	set_orien(float rx, float ry, float rz)
+t_orien	set_orien(double rx, double ry, double rz)
 {
 	t_orien orien;
 
@@ -32,7 +32,7 @@ t_orien	set_orien(float rx, float ry, float rz)
 	return (orien);
 }
 
-t_coord	set_coord(float x, float y, float z)
+t_coord	set_coord(double x, double y, double z)
 {
 	t_coord coord;
 

@@ -6,7 +6,7 @@
 /*   By: mlacheny <mlacheny@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/11/01 12:13:13 by mlacheny          #+#    #+#             */
-/*   Updated: 2020/11/03 10:35:22 by mlacheny         ###   ########.fr       */
+/*   Updated: 2020/11/08 17:50:12 by mlacheny         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -28,9 +28,9 @@ int		ft_atocolor(char **str, unsigned char *p)
 	return (0);
 }
 
-float	get_dec(char **str)
+double	get_dec(char **str)
 {
-	float	d;
+	double	d;
 	int		i;
 
 	d = 0;
@@ -42,10 +42,10 @@ float	get_dec(char **str)
 	return (d);
 }
 
-int		ft_atof(char **str, float *f)
+int		ft_atof(char **str, double *f)
 {
-	float	e;
-	float	d;
+	double	e;
+	double	d;
 	int		sign;
 
 	sign = 1;

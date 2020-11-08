@@ -11,6 +11,8 @@ SRCS =	srcs/pars/parsing.c							\
 		srcs/structs/set_structs.c					\
 		srcs/structs/disp_arg.c						\
 		srcs/structs/disp_objs.c					\
+		srcs/rotations/transfo_mat.c				\
+		srcs/vectors/vect_operations.c				\
 
 NAME = miniRT
 
