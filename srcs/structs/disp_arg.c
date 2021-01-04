@@ -6,7 +6,7 @@
 /*   By: mlacheny <mlacheny@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/11/03 11:27:36 by mlacheny          #+#    #+#             */
-/*   Updated: 2020/11/03 13:06:52 by mlacheny         ###   ########.fr       */
+/*   Updated: 2020/11/11 14:50:14 by mlacheny         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -49,6 +49,16 @@ void display_cams(t_list *cam)
 		printf("ORIENTATION SUR Y : %f\n", ((t_cam *)cam->content)->orien.ry);
 		printf("ORIENTATION SUR Z : %f\n", ((t_cam *)cam->content)->orien.rz);
 		printf("FOV : %d\n\n", ((t_cam *)cam->content)->fov);
+		printf("Transfo matrice :\n\n");
+		for (int i = 0; i < 4; i++)
+		{
+			printf("|   ");
+			for (int j = 0; j < 4; j++)
+			{
+				printf("%f  ", ((t_cam *)cam->content)->tra[i][j]);
+			}
+			printf("    |\n\n");
+		}
 		cam = cam->next;
 	}
 }

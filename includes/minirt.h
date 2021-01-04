@@ -6,7 +6,7 @@
 /*   By: mlacheny <mlacheny@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/10/14 22:13:35 by mlacheny          #+#    #+#             */
-/*   Updated: 2020/11/08 18:13:25 by mlacheny         ###   ########.fr       */
+/*   Updated: 2020/12/17 13:42:30 by mlacheny         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -49,8 +49,8 @@ typedef struct	s_cam
 	t_coord			coord;
 	t_orien			orien;
 	int				fov;
+	t_list			*obj;
 	double			tra[4][4];
-	t_orien			*rays;
 }				t_cam;
 
 typedef struct	s_lum_amb
@@ -123,35 +123,44 @@ typedef struct	s_scene
 	t_list		*light;
 	t_list		*objs;
 }				t_scene;
-
-int				fill_scene(t_scene *scene, int *fd, int argc, char **argv);
+//					./pars
+//						  /parsing.c
 int				handle_err(int argc, char **argv);
-int				is_sp(char c);
+//						  /fill_scene.c
+int				fill_scene(t_scene *scene, int *fd, int argc, char **argv);
+//						  /valid_arg.c
 int				valid_res(char *str, int *is_R);
 int				valid_amb(char *str, int *is_A);
 int				valid_cam(char *str);
 int				valid_light(char *str);
 int				valid_sphere(char *str);
+//						  /valid_arg2.c
 int				valid_plane(char *str);
 int				valid_squarre(char *str);
 int				valid_cylindre(char *str);
 int				valid_triangle(char *str);
-int				valid_coord(char **str, t_coord *coord);
-int				valid_orient(char **str, t_orien *orien);
+//						  /valid_param.c
+int				is_sp(char c);
 int				valid_spacing(char **str);
 int				valid_color(char **str, t_color *color);
+int				valid_coord(char **str, t_coord *coord);
+int				valid_orient(char **str, t_orien *orien);
+//						  /ft_atonum.c
 int				ft_atocolor(char **str, unsigned char *p);
 int				ft_atof(char **str, double *f);
 int				ft_atoint(char **str);
+//						  /fill_arg.c
 int				new_res(t_scene *scene, char *str);
 int				new_amb(t_scene *scene, char *str);
 int				new_cam(t_scene *scene, char *str);
 int				new_light(t_scene *scene, char *str);
 int				new_sphere(t_scene *scene, char *str);
+//						  /fill_arg2.c
 int				new_plane(t_scene *scene, char *str);
 int				new_carre(t_scene *scene, char *str);
 int				new_cy(t_scene *scene, char *str);
 int				new_tr(t_scene *scene, char *str);
+//						/vect_op
 t_orien			to_norm(t_orien o);
 void			display_scene(t_scene scene);
 void			display_res(t_res res);
@@ -164,6 +173,7 @@ void			display_plane(t_plane pl);
 void			display_carre(t_carre sq);
 void			display_cy(t_cy cy);
 void			display_tr(t_tr tr);
+void			fill_mat_cam(t_cam *cam);
 t_color			set_color(unsigned char R, unsigned char G, unsigned char B);
 t_orien			set_orien(double rx, double ey, double rz);
 t_coord			set_coord(double x, double y, double z);

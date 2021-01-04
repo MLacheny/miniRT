@@ -6,7 +6,7 @@
 /*   By: mlacheny <mlacheny@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/11/02 13:49:18 by mlacheny          #+#    #+#             */
-/*   Updated: 2020/11/03 11:26:54 by mlacheny         ###   ########.fr       */
+/*   Updated: 2020/12/27 13:06:16 by mlacheny         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -39,6 +39,8 @@ int	new_cam(t_scene *scene, char *str)
 	valid_spacing(&str);
 	valid_orient(&str, &cam->orien);
 	cam->fov = ft_atoint(&str);
+	fill_mat_cam(cam);
+	cam->obj = 0;
 	ft_lstadd_back(&scene->cam, ft_lstnew(cam));
 	return (1);
 }

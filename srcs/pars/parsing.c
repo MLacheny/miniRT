@@ -6,7 +6,7 @@
 /*   By: mlacheny <mlacheny@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/10/19 15:34:18 by mlacheny          #+#    #+#             */
-/*   Updated: 2020/11/03 12:05:19 by mlacheny         ###   ########.fr       */
+/*   Updated: 2020/12/12 15:10:15 by mlacheny         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -99,6 +99,9 @@ int	main(int argc, char **argv)
 		return (1);
 	if ((err_type = fill_scene(&scene, &fd, argc, argv)) != 1)
 		return (handle_gnl_err(argv[0], err_type, fd));
+	//create_views(scene);
 	display_scene(scene);
+	t_list	*c_objs = objtocam(scene.objs, ((t_cam)cam->data).tra);
+	display_objs(c_objs);
 	return (0);
 }
