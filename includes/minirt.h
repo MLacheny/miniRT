@@ -6,7 +6,7 @@
 /*   By: mlacheny <mlacheny@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/10/14 22:13:35 by mlacheny          #+#    #+#             */
-/*   Updated: 2020/12/17 13:42:30 by mlacheny         ###   ########.fr       */
+/*   Updated: 2021/01/06 15:55:30 by mlacheny         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -160,23 +160,37 @@ int				new_plane(t_scene *scene, char *str);
 int				new_carre(t_scene *scene, char *str);
 int				new_cy(t_scene *scene, char *str);
 int				new_tr(t_scene *scene, char *str);
-//						/vect_op
+//						  /vect_op.c
 t_orien			to_norm(t_orien o);
+//					/structs
+//							/disp_arg.c
 void			display_scene(t_scene scene);
 void			display_res(t_res res);
 void			display_lumamb(t_lum_amb lum_amb);
 void			display_cams(t_list *cam);
 void			display_lights(t_list *light);
+//							/disp_objs.c
 void			display_objs(t_list *obj);
 void			display_sphere(t_sp sp);
 void			display_plane(t_plane pl);
 void			display_carre(t_carre sq);
 void			display_cy(t_cy cy);
 void			display_tr(t_tr tr);
-void			fill_mat_cam(t_cam *cam);
+//							/set_structs.c
 t_color			set_color(unsigned char R, unsigned char G, unsigned char B);
 t_orien			set_orien(double rx, double ey, double rz);
 t_coord			set_coord(double x, double y, double z);
 t_scene			def_scene(void);
+//					/rotations
+//						  	  /transfo_mat.c
+void			fill_mat_cam(t_cam *cam);
+t_coord			coord_transfo(t_coord v1, double m21[4][4]);
+t_orien			orien_transfo(t_orien v1, double m21[4][4]);
+//							  /objtocam.c
+void			objtocam(t_scene *scene);
+//					/intersections
+//								  /obj_inter.c
+//								  /ray_gen.c
+t_orien			gen_ray(t_res res, t_cam cam, int index);
 
 #	endif

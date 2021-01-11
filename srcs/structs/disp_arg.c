@@ -6,7 +6,7 @@
 /*   By: mlacheny <mlacheny@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/11/03 11:27:36 by mlacheny          #+#    #+#             */
-/*   Updated: 2020/11/11 14:50:14 by mlacheny         ###   ########.fr       */
+/*   Updated: 2021/01/05 16:40:17 by mlacheny         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -59,6 +59,7 @@ void display_cams(t_list *cam)
 			}
 			printf("    |\n\n");
 		}
+		display_objs(((t_cam *)cam->content)->obj);
 		cam = cam->next;
 	}
 }

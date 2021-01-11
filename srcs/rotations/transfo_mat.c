@@ -6,7 +6,7 @@
 /*   By: mlacheny <mlacheny@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/11/08 11:20:59 by mlacheny          #+#    #+#             */
-/*   Updated: 2020/12/01 17:13:16 by mlacheny         ###   ########.fr       */
+/*   Updated: 2021/01/05 15:26:26 by mlacheny         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -74,4 +74,24 @@ void	fill_mat_cam(t_cam *cam)
 		tetx_alphy(cam, teta, asin(-cam->orien.rx / cos(teta)));
 	else
 		tetx_alphy(cam, teta, M_PI - asin(-cam->orien.rx / cos(teta)));
+}
+
+t_coord	coord_transfo(t_coord v1, double m21[4][4])
+{
+	t_coord	v2;
+
+	v2.x = m21[0][0] * v1.x + m21[0][1] * v1.y + m21[0][2] * v1.z + m21[0][3];
+	v2.y = m21[1][0] * v1.x + m21[1][1] * v1.y + m21[1][2] * v1.z + m21[1][3];
+	v2.z = m21[2][0] * v1.x + m21[2][1] * v1.y + m21[2][2] * v1.z + m21[2][3];
+	return (v2);
+}
+
+t_orien	orien_transfo(t_orien v1, double m21[4][4])
+{
+	t_orien v2;
+
+	v2.rx = m21[0][0] * v1.rx + m21[0][1] * v1.ry + m21[0][2] * v1.rz + m21[0][3];
+	v2.ry = m21[1][0] * v1.rx + m21[1][1] * v1.ry + m21[1][2] * v1.rz + m21[1][3];
+	v2.rz = m21[2][0] * v1.rx + m21[2][1] * v1.ry + m21[2][2] * v1.rz + m21[2][3];
+	return (v2);
 }

@@ -6,7 +6,7 @@
 /*   By: mlacheny <mlacheny@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/12/10 16:43:02 by mlacheny          #+#    #+#             */
-/*   Updated: 2020/12/12 14:12:01 by mlacheny         ###   ########.fr       */
+/*   Updated: 2021/01/11 10:35:40 by mlacheny         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,7 +14,13 @@
 
 int	compute_color(char *adr, int np, t_scene scene)
 {
-	
+	t_orien ray;
+	t_cam	cam;
+	double	d;
+
+	cam = (t_cam)(*scene.cam->content);
+	ray = gen_ray(scene.res, *cam, np);
+	d = compute_inter(ray, cam);
 }
 
 int	create_images(t_scene scene, void *mlx, t_list **im)
@@ -25,7 +31,7 @@ int	create_images(t_scene scene, void *mlx, t_list **im)
 	int		data[3];
 
 	np = 0;
-	while (scene->cam)
+	while (scene.cam)
 	{
 		if (!(image = mlx_new_image(mlx, scene.res.x, scene.res.y)))
 			return (0);
@@ -36,7 +42,7 @@ int	create_images(t_scene scene, void *mlx, t_list **im)
 			np++;
 		}
 		ft_lstadd_back(im, ft_lstnew(image));
-		scene->cam = scene->cam->next;
+		scene.cam = scene.cam->next;
 	}
 }
 
